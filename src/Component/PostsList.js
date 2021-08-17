@@ -70,9 +70,11 @@ export const PostsList = () => {
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {postHeaders.map((headerName, i) => (
-                <TableCell key={i}>{headerName}</TableCell>
-              ))}
+              <Link>
+                {postHeaders.map((headerName, i) => (
+                  <TableCell key={i}>{headerName}</TableCell>
+                ))}
+              </Link>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -80,7 +82,11 @@ export const PostsList = () => {
               search(postDetails).map((row, i) => (
                 <TableRow key={i}>
                   <Link to={{ pathname: "postDetails", state: row }}>
-                    <TableCell component="th" scope="row">
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      style={{ paddingRight: "4rem" }}
+                    >
                       <Link to={{ pathname: "userDetails", state: row }}>
                         {row.id}
                       </Link>
